@@ -13,7 +13,7 @@ ORCID_LIVE_API = 'https://api.orcid.org'
 endpoints = {}
 endpoints['profile'] = 'orcid-profile'
 CREATE_URL_TEMPLATE = '{orcid_api}/v{schema_version}/{endpoint}'
-orcid_test_email_number = 220
+orcid_test_email_number = 280
 
 def load(filename):
     with open(filename, 'rb') as f:
@@ -267,6 +267,7 @@ def ingest_csv(orcid_env, fn, create_url, headers, schema_version, locale, count
                 org_ringgold_id=org_data.get('ringgold_id'),
                 scopus_id=rec[columns['scopus_id']],
                 researcher_id=rec[columns['researcher_id']],
+                orcid_env=orcid_env
             )
 
             #print rec_xml
